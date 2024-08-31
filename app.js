@@ -29,7 +29,8 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-const dbUrl = process.env.ATLASDB_URL || 8000; //mongodb connection database
+const dbUrl = process.env.ATLASDB_URL; //mongodb connection database
+const port = process.env.PORT || 4000;
 
 main()
   .then(() => {
@@ -139,6 +140,6 @@ app.use((err,req,res, next) =>{
   next();
 });
 
-app.listen(8000, () => {
+app.listen(port, () => {
   console.log("server is listening to port 8000");
 });
