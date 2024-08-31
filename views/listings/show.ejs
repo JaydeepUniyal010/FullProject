@@ -90,9 +90,10 @@
         <p class="card-text"><%= review.comment %></p>
         
         </div>
-        <form class="mb-2" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-          <button class="btn btn-dark">Delete</button>
-        </form>
+        <% if (review.author.equals(currentUser._id)) { %> <!-- Check if the current user is the author -->
+            <form class="mb-2" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                <button class="btn btn-dark">Delete</button>
+            </form>
       </div>
     </div>
     <% } %>
@@ -106,5 +107,3 @@
   </div>
 
 <script src="/js/map.js"></script>
-
- 
