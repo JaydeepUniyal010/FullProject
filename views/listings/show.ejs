@@ -84,23 +84,24 @@
     <p><b>All Reviews</b></p>
   <% for(review of listing.reviews) { %>
     <div class="card col-5 ms-3 mb-3">
-      <div class="card-body">
+      <div class="card-body ">
         <h5 class="card-title"> @<%=review.author.username %> </h5>
-        <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+        <p class="starability-result card-text " data-rating="<%= review.rating %>"></p>
         <p class="card-text"><%= review.comment %></p>
-        
+        <br>
         </div>
-        <% if (review.author.equals(currentUser._id)) { %> <!-- Check if the current user is the author -->
-            <form class="mb-2" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+        
+        <% if (review.author.equals(currUser)) { %> <!-- Check if the current user is the author -->
+            <form class="ms-3 mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                 <button class="btn btn-dark">Delete</button>
             </form>
+            <% } %>
       </div>
     </div>
     <% } %>
   </div>
     <% } %>
-</div>
-        
+</div> 
         <div class="col-8 offset-2 "> 
           <h3>Where you'll be</h3>
           <div id="map"></div>              
