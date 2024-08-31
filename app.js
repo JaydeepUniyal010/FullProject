@@ -29,8 +29,7 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-
-const dbUrl = process.env.ATLASDB_URL; //mongodb connection database
+const dbUrl = process.env.ATLASDB_URL || 8000; //mongodb connection database
 
 main()
   .then(() => {
